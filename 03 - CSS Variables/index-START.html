@@ -3,48 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
-
-  <div class="controls">
-    <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
-
-    <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
-
-    <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+  <div class="wrapper">
+    <header>
+      <h1>Image Editor - CSS Variables with JS</h1>
+    </header>
+    <section>
+      <div class="main">
+        <div class="display-board">
+          <img src="https://rgwebdesignlanka.com/blog/wp-content/uploads/2017/04/web-design-and-development.jpg">
+        </div>
+      </div>
+      <div class="filters">
+        <div class="search__box">
+          <input type="text" name="search" placeholder="Paste any image link and start editing">
+          <button class="go">Go</button>
+        </div>
+        <form id="filter">
+          <div class="individual__filter">
+            <label for="br">Brightness</label>
+            <input type="range" min="0" max="10" name="brightness" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="ct">Contrast</label>
+            <input type="range" min="0" max="10" name="contrast" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="bl">Blur</label>
+            <input type="range" min="0" max="100" data-sizing="px" name="blur" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="gs">Grayscale</label>
+            <input type="range" min="0" max="100" data-sizing="%" name="grayscale" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="op">Opacity</label>
+            <input type="range" min="0" max="100" data-sizing="%" name="opacity" value="1">
+          </div>
+          <div class="individual__filter">
+            <label for="sat">Saturate</label>
+            <input type="range" min="0" max="10" name="saturate" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="sepia">Sepia</label>
+            <input type="range" min="0" max="10" name="sepia" value="0">
+          </div>
+          <div class="individual__filter">
+            <label for="invert">Invert</label>
+            <input type="range" min="0" max="100" data-sizing="%" name="invert" value="0">
+          </div>
+          <div class="btn"><button id="reset">Reset</button></div>
+        </form>
+      </div>
+    </section>
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
-
-  <style>
-
-    /*
-      misc styles, nothing to do with CSS variables
-    */
-
-    body {
-      text-align: center;
-      background: #193549;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-    }
-
-    .controls {
-      margin-bottom: 50px;
-    }
-
-    input {
-      width: 100px;
-    }
-  </style>
-
   <script>
+    const go = document.querySelector('.go');
+    const reset = document.querySelector('#reset');
+    const inputs = document.querySelectorAll('#filter input');
+    const img = document.querySelector('.display-board img');
+
+    // bind events to the elements
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    // inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    go.addEventListener('click', addImageUrl);
+    reset.addEventListener('click', resetValues);
+
+    // add image to the display board
+    function addImageUrl() {
+      const imgSearchbox = document.querySelector('.search__box input');
+      img.src = imgSearchbox.value;
+      imgSearchbox.value='';
+    }
+
+    // reset the filter values
+    function resetValues() {
+      handleUpdate();
+    }
+
+    // change the filter value
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value+suffix);
+    }
   </script>
 
 </body>
