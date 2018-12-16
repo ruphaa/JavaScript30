@@ -3,17 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="draw" width="800" height="800"></canvas>
-<script>
-</script>
+  <h1>Choose a brush and start painting your world</h1>
+  <div class="wrapper">
+    
+    <div class="brushes">
+      <div class="brush small">
+        <img  id=5 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6I0MxN0MzRTsiIGQ9Ik0xNzYuNTUyLDIyOS41MTd2NDQuMTM4YzAsMTUuMDA3LDExLjQ3NiwyNi40ODMsMjYuNDgzLDI2LjQ4M2wwLDAgIGMtNy4wNjIsMzcuMDc2LTguODI4LDExMi4xMS04LjgyOCwxNDkuMTg2YzAsMzMuNTQ1LDI2LjQ4Myw2Mi42NzYsNjAuMDI4LDYyLjY3NmMwLjg4MywwLDIuNjQ4LDAsMy41MzEsMCAgYzMzLjU0NS0wLjg4Myw2MC4wMjgtMjkuMTMxLDYwLjAyOC02Mi42NzZjMC0zNi4xOTMtMS43NjYtMTExLjIyOC04LjgyOC0xNDkuMTg2bDAsMGMxNS4wMDcsMCwyNi40ODMtMTEuNDc2LDI2LjQ4My0yNi40ODN2LTQ0LjEzOCAgSDE3Ni41NTJ6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM5RTVBMjM7IiBkPSJNMTY3LjcyNCwxNTAuMDY5djc5LjQ0OEgyNTZoODguMjc2di03OS40NDhIMTY3LjcyNHoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0VDRThEODsiIGQ9Ik0zMTcuNzkzLDBjOS43MSwwLDE3LjY1NSw3Ljk0NSwxNy42NTUsMTcuNjU1djEzMi40MTRIMTc2LjU1MlYxNy42NTUgIGMwLTkuNzEsNy45NDUtMTcuNjU1LDE3LjY1NS0xNy42NTVIMzE3Ljc5M3oiLz4KPHBhdGggc3R5bGU9ImZpbGw6IzlFNUEyMzsiIGQ9Ik0yODIuNDgzLDQzMi41NTJjMC0xNS4wMDctMTEuNDc2LTI2LjQ4My0yNi40ODMtMjYuNDgzcy0yNi40ODMsMTEuNDc2LTI2LjQ4MywyNi40ODMgIHMxMS40NzYsMjYuNDgzLDI2LjQ4MywyNi40ODNTMjgyLjQ4Myw0NDcuNTU5LDI4Mi40ODMsNDMyLjU1MiIvPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNDOUMzQTc7IiBkPSJNMjkxLjMxLDk3LjEwM2M1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXY4OC4yNzYgICBDMjgyLjQ4Myw5My41NzIsMjg2LjAxNCw5Ny4xMDMsMjkxLjMxLDk3LjEwMyIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0M5QzNBNzsiIGQ9Ik0yNTYsMTIzLjU4NmM1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXYxMTQuNzU5ICAgQzI0Ny4xNzIsMTIwLjA1NSwyNTAuNzAzLDEyMy41ODYsMjU2LDEyMy41ODYiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNDOUMzQTc7IiBkPSJNMjIwLjY5LDk3LjEwM2M1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXY4OC4yNzYgICBDMjExLjg2Miw5My41NzIsMjE1LjM5Myw5Ny4xMDMsMjIwLjY5LDk3LjEwMyIvPgo8L2c+CjxwYXRoIHN0eWxlPSJmaWxsOiM5RTVBMjM7IiBkPSJNMjM4LjM0NSwyNjQuODI4YzAtNS4yOTctMy41MzEtOC44MjgtOC44MjgtOC44MjhoLTUyLjk2NnYxNy42NTVoNTIuOTY2ICBDMjM0LjgxNCwyNzMuNjU1LDIzOC4zNDUsMjcwLjEyNCwyMzguMzQ1LDI2NC44MjgiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+      </div>
+      <div class="brush medium">
+        <img  id=10 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6I0MxN0MzRTsiIGQ9Ik0xNDEuMjQxLDIyOS41MTdWMjU2YzAsMzQuNDI4LDI3LjM2Niw2MS43OTMsNjEuNzkzLDYxLjc5M2wwLDAgIGMtNy4wNjIsMzcuMDc2LTguODI4LDk0LjQ1NS04LjgyOCwxMzEuNTMxYzAsMzMuNTQ1LDI2LjQ4Myw2Mi42NzYsNjAuMDI4LDYyLjY3NmMwLjg4MywwLDIuNjQ4LDAsMy41MzEsMCAgYzMzLjU0NS0wLjg4Myw2MC4wMjgtMjkuMTMxLDYwLjAyOC02Mi42NzZjMC0zNi4xOTMtMS43NjYtOTMuNTcyLTguODI4LTEzMS41MzFsMCwwYzM0LjQyOCwwLDYxLjc5My0yNy4zNjUsNjEuNzkzLTYxLjc5M3YtMjYuNDgzICBIMTQxLjI0MXoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0VDRThEODsiIGQ9Ik0zNTMuMTAzLDBjOS43MSwwLDE3LjY1NSw3Ljk0NSwxNy42NTUsMTcuNjU1djEzMi40MTRIMTQxLjI0MVYxNy42NTUgIGMwLTkuNzEsNy45NDUtMTcuNjU1LDE3LjY1NS0xNy42NTVIMzUzLjEwM3oiLz4KPGc+Cgk8cGF0aCBzdHlsZT0iZmlsbDojOUU1QTIzOyIgZD0iTTEzMi40MTQsMjI5LjUxN2gyNDcuMTcydi03OS40NDhIMTMyLjQxNFYyMjkuNTE3eiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6IzlFNUEyMzsiIGQ9Ik0yODIuNDgzLDQzMi41NTJjMC0xNS4wMDctMTEuNDc2LTI2LjQ4My0yNi40ODMtMjYuNDgzcy0yNi40ODMsMTEuNDc2LTI2LjQ4MywyNi40ODMgICBzMTEuNDc2LDI2LjQ4MywyNi40ODMsMjYuNDgzUzI4Mi40ODMsNDQ3LjU1OSwyODIuNDgzLDQzMi41NTIiLz4KPC9nPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNDOUMzQTc7IiBkPSJNMjkxLjMxLDEyMy41ODZjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFYwaC0xNy42NTV2MTE0Ljc1OSAgIEMyODIuNDgzLDEyMC4wNTUsMjg2LjAxNCwxMjMuNTg2LDI5MS4zMSwxMjMuNTg2Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTI1Niw5Ny4xMDNjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFYwaC0xNy42NTV2ODguMjc2ICAgQzI0Ny4xNzIsOTMuNTcyLDI1MC43MDMsOTcuMTAzLDI1Niw5Ny4xMDMiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNDOUMzQTc7IiBkPSJNMzI2LjYyMSw5Ny4xMDNjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFYwaC0xNy42NTV2ODguMjc2ICAgQzMxNy43OTMsOTMuNTcyLDMyMS4zMjQsOTcuMTAzLDMyNi42MjEsOTcuMTAzIi8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTIyMC42OSwxMjMuNTg2YzUuMjk3LDAsOC44MjgtMy41MzEsOC44MjgtOC44MjhWMGgtMTcuNjU1djExNC43NTkgICBDMjExLjg2MiwxMjAuMDU1LDIxNS4zOTMsMTIzLjU4NiwyMjAuNjksMTIzLjU4NiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0M5QzNBNzsiIGQ9Ik0xODUuMzc5LDk3LjEwM2M1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXY4OC4yNzYgICBDMTc2LjU1Miw5My41NzIsMTgwLjA4Myw5Ny4xMDMsMTg1LjM3OSw5Ny4xMDMiLz4KPC9nPgo8cGF0aCBzdHlsZT0iZmlsbDojOUU1QTIzOyIgZD0iTTIwMy4wMzQsMjY0LjgyOEgxNDMuODljLTAuODgzLDAtMC44ODMsMC0xLjc2NiwwYzAuODgzLDYuMTc5LDIuNjQ4LDExLjQ3Niw1LjI5NywxNy42NTVoNTUuNjE0ICBjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOEMyMTEuODYyLDI2OC4zNTksMjA4LjMzMSwyNjQuODI4LDIwMy4wMzQsMjY0LjgyOCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+      </div>
+      <div class="brush large">
+        <img  id=25 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6I0MxN0MzRTsiIGQ9Ik04OC4yNzYsMjI5LjUxN3Y0NC4xMzhjMCwzNC40MjgsMjcuMzY2LDYxLjc5Myw2MS43OTMsNjEuNzkzaDUyLjk2NiAgYy03LjA2MiwzNy4wNzYtOC44MjgsNzYuOC04LjgyOCwxMTMuODc2YzAsMzMuNTQ1LDI2LjQ4Myw2Mi42NzYsNjAuMDI4LDYyLjY3NmMwLjg4MywwLDIuNjQ4LDAsMy41MzEsMCAgYzMzLjU0NS0wLjg4Myw2MC4wMjgtMjkuMTMxLDYwLjAyOC02Mi42NzZjMC0zNi4xOTMtMS43NjYtNzUuOTE3LTguODI4LTExMy44NzZoNTIuOTY2YzM0LjQyOCwwLDYxLjc5My0yNy4zNjYsNjEuNzkzLTYxLjc5MyAgdi00NC4xMzhIODguMjc2eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojOUU1QTIzOyIgZD0iTTc5LjQ0OCwyMjkuNTE3aDM1My4xMDN2LTc5LjQ0OEg3OS40NDhWMjI5LjUxN3oiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0VDRThEODsiIGQ9Ik0xMDUuOTMxLDBjLTkuNzEsMC0xNy42NTUsNy45NDUtMTcuNjU1LDE3LjY1NXYxMzIuNDE0aDMzNS40NDhWMTcuNjU1ICBjMC05LjcxLTcuOTQ1LTE3LjY1NS0xNy42NTUtMTcuNjU1SDEwNS45MzF6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM5RTVBMjM7IiBkPSJNMjgyLjQ4Myw0MzIuNTUyYzAtMTUuMDA3LTExLjQ3Ni0yNi40ODMtMjYuNDgzLTI2LjQ4M3MtMjYuNDgzLDExLjQ3Ni0yNi40ODMsMjYuNDgzICBzMTEuNDc2LDI2LjQ4MywyNi40ODMsMjYuNDgzUzI4Mi40ODMsNDQ3LjU1OSwyODIuNDgzLDQzMi41NTIiLz4KPGc+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTI3My42NTUsMTIzLjU4NmM1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXYxMTQuNzU5ICAgQzI2NC44MjgsMTIwLjA1NSwyNjguMzU5LDEyMy41ODYsMjczLjY1NSwxMjMuNTg2Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTMwOC45NjYsMTIzLjU4NmM1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXYxMTQuNzU5ICAgQzMwMC4xMzgsMTIwLjA1NSwzMDMuNjY5LDEyMy41ODYsMzA4Ljk2NiwxMjMuNTg2Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTIzOC4zNDUsOTcuMTAzYzUuMjk3LDAsOC44MjgtMy41MzEsOC44MjgtOC44MjhWMGgtMTcuNjU1djg4LjI3NiAgIEMyMjkuNTE3LDkzLjU3MiwyMzMuMDQ4LDk3LjEwMywyMzguMzQ1LDk3LjEwMyIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0M5QzNBNzsiIGQ9Ik0zNzkuNTg2LDEyMy41ODZjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFYwaC0xNy42NTV2MTE0Ljc1OSAgIEMzNzAuNzU5LDEyMC4wNTUsMzc0LjI5LDEyMy41ODYsMzc5LjU4NiwxMjMuNTg2Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzlDM0E3OyIgZD0iTTM0NC4yNzYsOTcuMTAzYzUuMjk3LDAsOC44MjgtMy41MzEsOC44MjgtOC44MjhWMGgtMTcuNjU1djg4LjI3NiAgIEMzMzUuNDQ4LDkzLjU3MiwzMzguOTc5LDk3LjEwMywzNDQuMjc2LDk3LjEwMyIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0M5QzNBNzsiIGQ9Ik0yMDMuMDM0LDEyMy41ODZjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFYwaC0xNy42NTV2MTE0Ljc1OSAgIEMxOTQuMjA3LDEyMC4wNTUsMTk3LjczOCwxMjMuNTg2LDIwMy4wMzQsMTIzLjU4NiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0M5QzNBNzsiIGQ9Ik0xNjcuNzI0LDk3LjEwM2M1LjI5NywwLDguODI4LTMuNTMxLDguODI4LTguODI4VjBoLTE3LjY1NXY4OC4yNzYgICBDMTU4Ljg5Nyw5My41NzIsMTYyLjQyOCw5Ny4xMDMsMTY3LjcyNCw5Ny4xMDMiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNDOUMzQTc7IiBkPSJNMTMyLjQxNCwxMjMuNTg2YzUuMjk3LDAsOC44MjgtMy41MzEsOC44MjgtOC44MjhWMGgtMTcuNjU1djExNC43NTkgICBDMTIzLjU4NiwxMjAuMDU1LDEyNy4xMTcsMTIzLjU4NiwxMzIuNDE0LDEyMy41ODYiLz4KPC9nPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiM5RTVBMjM7IiBkPSJNMTUwLjA2OSwyNjQuODI4YzAtNS4yOTctMy41MzEtOC44MjgtOC44MjgtOC44MjhIODguMjc2djE3LjY1NWg1Mi45NjYgICBDMTQ2LjUzOCwyNzMuNjU1LDE1MC4wNjksMjcwLjEyNCwxNTAuMDY5LDI2NC44MjgiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiM5RTVBMjM7IiBkPSJNMTIzLjU4NiwyOTEuMzFIOTcuMTAzYy0xLjc2NiwwLTQuNDE0LDAuODgzLTUuMjk3LDEuNzY2YzEuNzY2LDUuMjk3LDQuNDE0LDEwLjU5Myw3Ljk0NSwxNS44OSAgIGgyMy44MzRjNS4yOTcsMCw4LjgyOC0zLjUzMSw4LjgyOC04LjgyOFMxMjguODgzLDI5MS4zMSwxMjMuNTg2LDI5MS4zMSIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+      </div>
+    </div>
+    <div class="painting-board">
+      <div class="board">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="stand"></div>
+    </div>
+    <div class="buttons">
+      <button class="save" id="save">Save</button>
+      <button class="clear" id="clear">Clear</button>
+    </div>
+    <div class="paint-plate">
+      <div class="paint-palette">
+      <div class="color green" style="background:#1CAF5F"></div>
+      <div class="color blue" style="background:#0063B6"></div>
+      <div class="color yellow" style="background:#FEBC0F"></div>
+      <div class="color red" style="background:#E34744"></div>
+      <div class="color violet" style="background:#6E4EA1"></div>
+      <div class="color rainbow" id="rainbow"></div>
+    </div>
+  </div>
+</div>
+  
+  <script>
+    // Selectors 
+  const canvas = document.querySelector('#canvas');
+  const ctx = canvas.getContext('2d');
+  const save = document.querySelector('#save');
+  const clear = document.querySelector('#clear');
+  const colors = document.querySelectorAll('.color');
+  const brushes = document.querySelectorAll('.brush');
 
-<style>
-  html, body {
-    margin: 0;
+  let isDrawing = false;
+  let currentColor = '#BADA55';
+  let brushSize = 5;
+  let lastX = canvas.getBoundingClientRect().left;
+  let lastY = canvas.getBoundingClientRect().top;
+  let hue = 0;
+  let isRainbow =  false;
+  // let canvasPositionLeft = canvas.getBoundingClientRect().left + window.scrollX;
+  // let canvasPositionTop = canvas.getBoundingClientRect().top + window.scrollY;
+  ctx.strokeStyle = currentColor;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.lineWidth = brushSize;
+
+  // Binding the events
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
+  });
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
+  save.addEventListener('click', saveCanvas);
+  clear.addEventListener('click', clearCanvas);
+  colors.forEach(color => color.addEventListener('click', selectColor));
+  brushes.forEach(brush => brush.addEventListener('click', selectBrush));
+
+  // Functions 
+
+  // Saves the canvas and downloads it
+  function saveCanvas() {
+    const image = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = image;
+    a.download = 'image.png';
+    a.click();
   }
-</style>
 
+  // Clears the canvas contents
+  function clearCanvas() {
+    ctx.fillStyle = '#F6F6D7';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function draw(e) {
+    if (!isDrawing) return; // skips the function if the drawing is false, so that no longer a user can draw
+    // let lastX = e.pageX - canvasPositionLeft;
+    // let lastY = e.pageY - canvasPositionTop;
+    if(isRainbow) setRainbow();
+    else ctx.strokeStyle = currentColor;
+    ctx.lineWidth = brushSize;
+    // ctx.lineTo(lastX, lastY);
+    // ctx.stroke();
+    // ctx.beginPath();
+    // ctx.arc(lastX, lastY, brushSize, 0, Math.PI * 2);
+    // ctx.fill();
+    // ctx.beginPath();
+    // ctx.moveTo(lastX, lastY); 
+    // debugger
+    ctx.beginPath();
+    // // start from
+    ctx.moveTo(lastX, lastY);
+    // // go to
+    ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+    ctx.stroke();
+    [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
+  }
+
+  // Selects the color to paint
+  function selectColor(e) {
+    if(e.target.id == 'rainbow') {
+      setRainbow();    
+      isRainbow = true;  
+    } else {
+      currentColor = e.target.style.background;
+      isRainbow = false;
+    }
+  }
+
+  // Sets the rainbow color
+  function setRainbow() {
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    hue++;
+    if(hue>=360) hue=0;
+  }
+
+  // Selects the brush size
+  function selectBrush(e) {
+    brushSize = e.target.id;
+  }
+  </script>
 </body>
 </html>

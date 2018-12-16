@@ -1,0 +1,172 @@
+body {
+    background-color: #54BDB8;
+    color: white;
+    font-family: 'helvetica neue', sans-serif;
+    font-weight: 100;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1 {
+    margin-left: -4rem;
+    color: #F6F6D7;
+  }
+  
+  .wrapper {
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .brushes {
+    display: flex;
+    margin-top: 13rem;
+    padding-right: 2rem;
+  }
+  .brushes .medium {
+    margin-left: -2rem;
+  }
+  .brushes .large {
+    margin-left: -1rem;
+  }
+  .brushes .brush {
+    cursor: pointer;
+  }
+  .brushes .brush img {
+    width: 5rem;
+    height: 5rem;
+    transform: scale(1.1);
+  }
+  
+  .painting-board .stand {
+    width: 20rem;
+    height: 0.5rem;
+    background-color: #4C2132;
+    position: relative;
+  }
+  .painting-board .stand:before {
+    content: '';
+    position: absolute;
+    width: 12.5rem;
+    height: 0.7rem;
+    background-color: #4C2132;
+    top: 5.5rem;
+    left: -3.5rem;
+    transform: rotateZ(-65deg);
+  }
+  .painting-board .stand:after {
+    content: '';
+    position: absolute;
+    width: 12.5rem;
+    height: 0.7rem;
+    background-color: #4C2132;
+    top: 5.5rem;
+    right: -3.5rem;
+    transform: rotateZ(65deg);
+  }
+  .painting-board .board {
+    width: 20rem;
+    height: 25rem;
+    background-color: #F6F6D7;
+    margin-top: 2rem;
+  }
+  .painting-board .board canvas {
+    width: 320px;
+    height: 400px;
+  }
+  
+  .buttons {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+  }
+  .buttons button {
+    text-align: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-left: 2rem;
+    position: relative;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0;
+  }
+  .buttons button:focus {
+    outline: 0;
+  }
+  .buttons button:before {
+    content: '';
+    position: absolute;
+    width: 0.2rem;
+    height: 4rem;
+    background-color: #666666;
+    top: -4rem;
+    left: 45%;
+  }
+  .buttons .save {
+    background-color: #16a085;
+  }
+  .buttons .save:hover {
+    background-color: #10826B;
+  }
+  .buttons .clear {
+    background-color: #e74c3c;
+  }
+  .buttons .clear:hover {
+    background-color: #c0392b;
+  }
+  
+  .paint-palette {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background-color: #D0E9D4;
+    position: relative;
+    right: -1rem;
+    top: 10rem;
+  }
+  .paint-palette .color {
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    cursor: pointer;
+  }
+  .paint-palette .color:nth-child(1) {
+    transform: rotate(0deg) translate(4rem);
+  }
+  .paint-palette .color:nth-child(2) {
+    transform: rotate(60deg) translate(4rem);
+  }
+  .paint-palette .color:nth-child(3) {
+    transform: rotate(120deg) translate(4rem);
+  }
+  .paint-palette .color:nth-child(4) {
+    transform: rotate(180deg) translate(4rem);
+  }
+  .paint-palette .color:nth-child(5) {
+    transform: rotate(240deg) translate(4rem);
+  }
+  .paint-palette .color:nth-child(6) {
+    transform: rotate(300deg) translate(4rem);
+    background-image: linear-gradient(65deg, #ff4b4b, #ffc14f, #ffff79, #5bfa5b, #3636ff, #6a2999, #e2a2e2);
+  }
+  
